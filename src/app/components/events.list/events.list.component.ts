@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs';
-import { DataType } from 'src/app/models/data.type';
-import { Events } from 'src/app/models/events.model';
+import { EventFromServer, Events } from 'src/app/models/events.model';
 import { EventsService } from 'src/app/services/events.service';
-import { __values } from 'tslib';
 
 @Component({
   selector: 'app-events.list',
@@ -11,24 +9,28 @@ import { __values } from 'tslib';
   styleUrls: ['./events.list.component.css']
 })
 export class EventsListComponent {
-  events:Events[]=[]
+
+  events!:Events[]|any
+  temp!:Events
+  eventInter!:EventFromServer[]
+
   /**
    *
    */
     constructor(
       private eventsService:EventsService
     ) {}
+    deleteEvent(arg0: string) {
+      throw new Error('Method not implemented.');
+      }
     getAll(){
       return this.eventsService.getAll()
-      .subscribe({
-          next :(result)=>{
-            const res=result
-            result.map(e=>console.log(e))
-            const values=Object.values(result)[1]
-
-            console.log(this.events)
-            console.log(values)
-            return this.events
+        .subscribe({
+            next :(result)=>{
+              const evt=result as unknown as EventFromServer
+              const data =evt.data as unknown as Events
+              this.events=data
+              return this.events
           },
           error:(err)=>console.log(err)
         })

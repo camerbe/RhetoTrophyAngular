@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
 // @Injectable({
@@ -13,11 +13,16 @@ export class DataService<T> {
       .pipe(map((res)=>res));
   }
   show(id:string):Observable<T>{
-    return this.http.get<T>(this.url+'/'+id).pipe(map((res)=>res));
+    return this.http.get<T>(this.url+'/'+id)
+    .pipe(map((res)=>res));
   }
-  create(resource:any):Observable<T>{
-    return this.http.post<T>(this.url,JSON.stringify(resource));
-  }
+  create(resource:T):Observable<T>{
+      const headers=new HttpHeaders()
+        .set('Content-Type','application/json')
+        .set('Access-Control-Allow-Origin','*')
+        .set('Accept','*/*');
+       return this.http.post<T>(this.url,JSON.stringify(resource),{headers});
+   }
   delete(id:string):Observable<T>{
     return this.http.get<T>(this.url+'/'+id);
   }

@@ -1,8 +1,13 @@
 export interface Events {
-  Oid:string;
-  Code:string;
-  Name:string;
-  Date:Date;
-  MaxNetTime:Number;
-  OptimisticLockField:Number;
+  oid:string;
+  code:string;
+  name:string;
+  date:Date;
+  maxnettime:Number;
+  optimisticLockfield:Number;
+}
+export interface EventFromServer{
+  sucess:boolean;
+  data:Events[];
+  message:string
 }

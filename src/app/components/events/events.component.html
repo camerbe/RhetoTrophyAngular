@@ -1,39 +1,69 @@
-<div class="container">
+
   <div class="row">
-    <div class="col-sm-4 offset-4  mt-5">
-      <form>
+    <div class="col-sm-6 offset-sm-3  mt-5">
+      <form [formGroup]="frmGroupEvent" (ngSubmit)="onSubmit()">
         <div class="row mb-3 mt-6">
           <label for="colFormLabelSm" class="col-sm-4 col-form-label col-form-label-sm">Code</label>
           <div class="col-sm-8">
-            <input type="text"  name="Code" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Code...">
+            <input type="text"
+              formControlName="Code"
+              name="Code"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              placeholder="Code...">
           </div>
         </div>
         <div class="row mb-3">
           <label for="colFormLabel" class="col-sm-4 col-form-label col-form-label-sm">Name</label>
           <div class="col-sm-8">
-            <input type="text" name="Name" class="form-control form-control-sm" id="colFormLabel" placeholder="Name...">
+            <input type="text"
+              formControlName="Name"
+              name="Name"
+              class="form-control form-control-sm"
+              id="colFormLabel"
+              placeholder="Name...">
           </div>
         </div>
         <div class="row mb-3">
           <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-sm">Date</label>
           <div class="col-sm-8">
-            <input type="date"  name="Date" class="form-control form-control-sm" id="colFormLabelLg" placeholder="Date...">
+            <input type="date"
+              formControlName="Date"
+              class="form-control form-control-sm"
+              id="colFormLabelLg"
+              placeholder="Date...">
           </div>
         </div>
         <div class="row mb-3">
           <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-sm">MaxNetTime</label>
           <div class="col-sm-8">
-            <input type="number"  name="MaxNetTime" class="form-control form-control-sm" id="colFormLabelLg" placeholder="MaxNetTime...">
+            <input type="text"
+              formControlName="MaxNetTime"
+
+              class="form-control form-control-sm"
+              id="colFormLabelLg"
+              placeholder="MaxNetTime...">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-sm">OptimisticLockField</label>
+          <div class="col-sm-8">
+            <input type="number"
+              formControlName="OptimisticLockField"
+              class="form-control form-control-sm"
+              id="colFormLabelLg"
+              placeholder="OptimisticLockField...">
           </div>
         </div>
         <div class="row mb-5">
           <div class="col-sm-4 offset-4">
             <button class="btn btn-primary">Submit</button>
+
           </div>
         </div>
       </form>
 
     </div>
   </div>
-</div>
-<app-footer></app-footer>
+
+
