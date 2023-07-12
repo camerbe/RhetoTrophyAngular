@@ -10,7 +10,8 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class EventsComponent {
   frmGroupEvent!:FormGroup
-
+  isAddMode!:boolean
+  oid!:string
   /**
    *
    */
@@ -52,12 +53,16 @@ export class EventsComponent {
         next:(res)=>{
           const result=res
           if (result){
-            this.router.navigate(['/eventslist'])
+            this.router.navigate(['/events'])
           }
 
         },
         error:(err)=>console.log(err)
       })
+  }
+  ngOnInit(){
+
+
   }
 
 }

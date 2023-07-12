@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
@@ -24,7 +24,7 @@ export class DataService<T> {
        return this.http.post<T>(this.url,JSON.stringify(resource),{headers});
    }
   delete(id:string):Observable<T>{
-    return this.http.get<T>(this.url+'/'+id);
+    return this.http.delete<T>(this.url+'/'+id);
   }
   update(id:string,resource:any):Observable<T>{
     return this.http.put<T>(this.url,JSON.stringify(resource))
