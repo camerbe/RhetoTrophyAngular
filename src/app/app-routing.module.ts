@@ -4,6 +4,7 @@ import { EventsComponent } from './components/events/events.component';
 import { EventsListComponent } from './components/events.list/events.list.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { EventsHomeComponent } from './components/events.home/events.home.component';
+import { EventteamlistComponent } from './components/eventteam/eventteamlist/eventteamlist.component';
 
 const routes: Routes = [
   { path : '', redirectTo : 'layout', pathMatch : 'full'},
@@ -42,7 +43,23 @@ const routes: Routes = [
 
 
       ]
-  }
+  },
+  {
+      path : '',
+      component:EventsHomeComponent,children:[
+        {
+          path:'',redirectTo:'eventteams',
+          title: 'liste des EventTeams',
+          pathMatch:'full'
+        },
+        {
+          path : 'eventteams',
+          title: 'liste des EventTeams',
+          component:EventteamlistComponent
+        },
+        
+      ]
+  },
   // { path : 'events', component:EventsListComponent,children:[
   //   {
   //     path:'events',redirectTo:'events',

@@ -17,7 +17,6 @@ export class AuthInterceptor implements HttpInterceptor {
       setHeaders:{
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Headers':'*',
-        'Access-Control-Allow-Credentials': 'true',
         'Content-Type':'application/json',
         'Accept':'*/*',
         

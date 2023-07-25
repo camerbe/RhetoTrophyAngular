@@ -14,6 +14,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { EventsHomeComponent } from './components/events.home/events.home.component';
 import { DataService } from './services/data.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { EventteamComponent } from './components/eventteam/eventteam.component';
+import { EventTeamHomeComponent } from './components/eventteam/eventteamhome/eventteamhome.component';
+import { EventteamlistComponent } from './components/eventteam/eventteamlist/eventteamlist.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     FooterComponent,
     EventsComponent,
     EventsListComponent,
-    EventsHomeComponent
+    EventsHomeComponent,
+    EventteamComponent,
+    EventTeamHomeComponent,
+    EventteamlistComponent
   ],
   imports: [
     BrowserModule,

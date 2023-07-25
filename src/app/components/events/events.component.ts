@@ -68,8 +68,15 @@ export class EventsComponent {
     else{
       this.eventsService.update(this.oid,this.frmGroupEvent.value).subscribe({
         next:(res)=>{
-          console.log(res)
-        }
+          const eventfromsvr=res as unknown as EventFromServer
+          this.evt =eventfromsvr.data as unknown as Events
+          if(eventfromsvr.sucess)
+          {
+            this.router.navigate(['/events'])
+          }
+
+        },
+        error:(err)=>console.log(err)
       })
     }
   }
@@ -84,13 +91,7 @@ export class EventsComponent {
         next:(res)=>{
           const evts=res as unknown as EventFromServer
           this.evt =evts.data as unknown as Events
-          
-          // console.log(new Date(this.evt.date).toLocaleDateString())
-          // this.frmGroupEvent.patchValue(new Date('2/14/2021'))
-          
-          // this.frmGroupEvent.get('Date')?.setValue(new Date('2/14/2021').toLocaleDateString())
-          // console.log(this.frmGroupEvent.get('Date')?.value)
-                    
+                         
           this.frmGroupEvent.patchValue({
             Code:this.evt.code,
             Name:this.evt.name,
