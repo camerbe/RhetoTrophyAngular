@@ -24,6 +24,10 @@ export class EventsListComponent {
       private obsService:ObservableService,
       private router:Router
     ) {}
+    // showEvent(oid:string){
+    //   this.router.navigate(['/events',oid])
+     
+    // }
     deleteEvent(oid: string) {
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

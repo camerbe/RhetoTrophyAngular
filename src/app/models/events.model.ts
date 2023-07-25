@@ -3,8 +3,8 @@ export interface Events {
   code:string;
   name:string;
   date:Date;
-  maxnettime:Number;
-  optimisticLockfield:Number;
+  maxnettime:number;
+  optimisticlockfield:number;
 }
 export interface EventFromServer{
   sucess:boolean;
