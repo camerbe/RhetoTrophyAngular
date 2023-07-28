@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { EventFromServer, Events } from 'src/app/models/events.model';
 import { EventsService } from 'src/app/services/events.service';
 import { ObservableService } from 'src/app/services/observable.service.service';
@@ -15,6 +16,7 @@ export class EventsListComponent {
   events!:Events[]|any
   temp!:Events
   eventInter!:EventFromServer[]
+  subscription!:Subscription
 
   /**
    *
@@ -49,6 +51,7 @@ export class EventsListComponent {
           this.eventsService.delete(oid).subscribe({
             next:()=>{
               this.events=this.events.filter((a:Events)=>a.oid!=oid)
+              this.subscription=this.events
               this.obsService.setObs(this.events)
               this.getAll()
             },
@@ -71,6 +74,7 @@ export class EventsListComponent {
               const evt=result as unknown as EventFromServer
               const data =evt.data as unknown as Events
               this.events=data
+              this.obsService.setObs(this.events)
               return this.events
           },
           error:(err)=>console.log(err)
@@ -78,6 +82,10 @@ export class EventsListComponent {
     }
     ngOnInit(){
       this.getAll()
+      this.subscription=this.obsService.obsSubject.subscribe(res=>this.events=res)
+    }
+    ngOnDestroy(){
+      this.subscription.unsubscribe
     }
 
 }

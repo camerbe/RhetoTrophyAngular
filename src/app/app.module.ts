@@ -17,6 +17,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { EventteamComponent } from './components/eventteam/eventteam.component';
 import { EventTeamHomeComponent } from './components/eventteam/eventteamhome/eventteamhome.component';
 import { EventteamlistComponent } from './components/eventteam/eventteamlist/eventteamlist.component';
+import { SaisieHomeComponent } from './components/saisies/saisie.home/saisie.home.component';
+import { SaisieComponent } from './components/saisies/saisie/saisie.component';
+import { EventtrackComponent } from './components/eventtrack/eventtrack.component';
+import { SaisieHeaderComponent } from './components/saisies/saisie.header/saisie.header.component';
+import { EventeamtrackComponent } from './components/saisies/eventeamtrack/eventeamtrack.component';
 
 
 @NgModule({
@@ -30,7 +35,12 @@ import { EventteamlistComponent } from './components/eventteam/eventteamlist/eve
     EventsHomeComponent,
     EventteamComponent,
     EventTeamHomeComponent,
-    EventteamlistComponent
+    EventteamlistComponent,
+    SaisieHomeComponent,
+    SaisieComponent,
+    EventtrackComponent,
+    SaisieHeaderComponent,
+    EventeamtrackComponent
   ],
   imports: [
     BrowserModule,

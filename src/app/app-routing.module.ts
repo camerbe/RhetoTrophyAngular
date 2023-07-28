@@ -5,6 +5,8 @@ import { EventsListComponent } from './components/events.list/events.list.compon
 import { LayoutComponent } from './components/layout/layout.component';
 import { EventsHomeComponent } from './components/events.home/events.home.component';
 import { EventteamlistComponent } from './components/eventteam/eventteamlist/eventteamlist.component';
+import { SaisieHomeComponent } from './components/saisies/saisie.home/saisie.home.component';
+import { SaisieComponent } from './components/saisies/saisie/saisie.component';
 
 const routes: Routes = [
   { path : '', redirectTo : 'layout', pathMatch : 'full'},
@@ -56,6 +58,22 @@ const routes: Routes = [
           path : 'eventteams',
           title: 'liste des EventTeams',
           component:EventteamlistComponent
+        },
+        
+      ]
+  },
+  {
+      path : '',
+      component:SaisieHomeComponent,children:[
+        {
+          path:'',redirectTo:'saisie',
+          title: 'écran de saisie des parcours',
+          pathMatch:'full'
+        },
+        {
+          path : 'saisie',
+          title: 'écran de saisie des parcours',
+          component:SaisieComponent
         },
         
       ]

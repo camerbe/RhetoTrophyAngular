@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-sm-12">
+      <form class="row g-3"  >
+        <div class="col-md-6">
+            <label for="inputNumTeam" class="form-label">N° de l'équipe</label>
+            <input 
+              type="number" 
+              name="inputNumTeam" 
+              class="form-control" 
+              id="inputNumTeam"
+              ngModel
+              (keyup.enter)="filterinputNumTeam($event)"
+              >
+          </div>
+          <div class="col-md-6">
+            <label for="inputTeam" class="form-label">Team</label>
+            <input 
+              type="text" 
+              name="inputTeam" 
+              class="form-control" 
+              id="inputTeam" 
+              onchange="filterTeam()"
+              ngModel
+            >
+        </div>
+        <div class="table-responsive mt-2">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Code</th>
+                  <th>N° de L'équipe</th>
+                  <th>Team</th>
+                  <th>Event Track</th>
+                  
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr *ngFor="let event of eventtracks;index as i" (click)="onSelect(event.EventTracks_Oid,event.EventTeams_Oid)">
+                  <th>{{i+1}}</th>
+                  <td> {{ event.Code}}</td>
+                  <td>{{ event.TeamNumber }}</td>
+                  <td>{{ event.Name }}</td>
+                  <td>{{ event.EventTracks_Name}}</td>
+                
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </form>
+      
+    </div>
+  </div>

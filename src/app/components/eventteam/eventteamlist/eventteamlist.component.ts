@@ -25,8 +25,8 @@ export class EventteamlistComponent {
       return this.eventTeamService.getAll().subscribe({
         next:(result)=>{
               const evt=result as unknown as EventTeamFromServer
-              //const data =evt.data as unknown as EventTeams
-              this.eventteams=evt.data as unknown as EventTeams
+              const data =evt.data as unknown as EventTeams
+              this.eventteams=data
               console.log(this.eventteams)
               return this.eventteams
         },
